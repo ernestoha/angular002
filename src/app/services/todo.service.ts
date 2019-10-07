@@ -37,6 +37,7 @@ export class TodoService {
   }
 
   deleteTodo(todo: Todo): Observable<any> {
+    console.log("deleteTodo Service...");
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.delete<Todo>(url, httpOptions);
   }
@@ -44,5 +45,10 @@ export class TodoService {
   toogleCompleted(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
+  }
+
+  addTodo(todo: Todo): Observable<Todo> {
+    console.log("AdTodo Service...");
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions);
   }
 }
