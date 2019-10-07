@@ -1,5 +1,9 @@
 <h1>Hello {{ title }}</h1>
 
-<ul *ngFor="let todo of todos">
+<!-- Show Array 01 -->
+<!--ul *ngFor="let todo of todos">
   <li>{{ todo.title }}</li>
-</ul>
+</ul-->
+
+<!-- Show Array 02 -->
+<app-todo-item *ngFor="let todo of todos" [todo]="todo"> </app-todo-item>
