@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { Todo } from "../../models/Todo";
-import { TodoService } from "src/app/services/todo.service";
+import { Component, OnInit } from '@angular/core';
+import { Todo } from '../../models/Todo';
+import { TodoService } from 'src/app/services/todo.service';
 @Component({
-  selector: "app-todos",
-  templateUrl: "./todos.component.html",
-  styleUrls: ["./todos.component.css"]
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  //String interpolation
-  title = "Ernesto";
+  // String interpolation
+  title = 'Ernesto';
   todos: Todo[];
 
   constructor(private todoService: TodoService) {}
@@ -20,16 +20,16 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo) {
-    //behavior like Reactjs props It is called from todo-item-components.ts this.deleteTodo.emit(todo);
-    // console.log("delete me");
-    //Remove UI
+    // behavior like Reactjs props It is called from todo-item-components.ts this.deleteTodo.emit(todo);
+    // console.log('delete me');
+    // Remove UI
     this.todos = this.todos.filter(t => t.id !== todo.id);
-    //Remove from Server
+    // Remove from Server
     this.todoService.deleteTodo(todo).subscribe();
   }
 
   addTodo(todo: Todo) {
-    console.log("addTodo");
+    console.log('addTodo');
     this.todoService.addTodo(todo).subscribe(todo => {
       this.todos.push(todo);
     });

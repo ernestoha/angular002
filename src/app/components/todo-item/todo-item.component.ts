@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-import { Todo } from "src/app/models/Todo";
-import { TodoService } from "src/app/services/todo.service";
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Todo } from 'src/app/models/Todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
-  selector: "app-todo-item",
-  templateUrl: "./todo-item.component.html",
-  styleUrls: ["./todo-item.component.css"]
+  selector: 'app-todo-item',
+  templateUrl: './todo-item.component.html',
+  styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
@@ -18,13 +18,13 @@ export class TodoItemComponent implements OnInit {
   setClasses() {
     let classes = {
       todo: true,
-      "is-complete": this.todo.completed
+      'is-complete': this.todo.completed
     };
     return classes;
   }
 
   onToogle(todo: Todo): void {
-    // console.log("onToogle");
+    // console.log('onToogle');
     //Toggle in UI
     todo.completed = !todo.completed;
     //Toggle on Server
@@ -32,7 +32,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onDelete(todo: Todo): void {
-    // console.log("onDelete");
+    // console.log('onDelete');
     this.deleteTodo.emit(todo);
   }
 }
